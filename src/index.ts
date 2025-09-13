@@ -274,6 +274,7 @@ export * from './utils/auth.js';
 export * from './actions/index.js';
 export * from './evaluators/index.js';
 export * from './providers/index.js';
+export * from './config/openchat-canisters.js';
 
 // Default export
 export default openChatPlugin;

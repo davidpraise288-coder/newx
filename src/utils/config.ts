@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 import { OpenChatConfig } from '../types/openchat.types.js';
+import { getMessagingCanister, getGroupCanister, getOpenChatCanisters } from '../config/openchat-canisters.js';
 
 // Load environment variables
 dotenv.config();
@@ -46,8 +47,8 @@ export const configPresets = {
    * Development configuration
    */
   development: (): OpenChatConfig => ({
-    canisterId: 'rdmx6-jaaaa-aaaah-qacaa-cai', // Example canister ID
-    host: 'http://127.0.0.1:8000', // Local replica
+    canisterId: getMessagingCanister('test'), // Use test environment
+    host: 'https://ic0.app', // Use IC mainnet even for dev
     identity: './dev-identity.json',
     agentOptions: {
       retryTimes: 1,
@@ -70,8 +71,8 @@ export const configPresets = {
   /**
    * Production configuration
    */
-  production: (canisterId: string): OpenChatConfig => ({
-    canisterId,
+  production: (canisterId?: string): OpenChatConfig => ({
+    canisterId: canisterId || getMessagingCanister('production'),
     host: 'https://ic0.app',
     identity: './prod-identity.json',
     agentOptions: {

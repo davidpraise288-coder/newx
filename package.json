@@ -22,6 +22,8 @@
     "example:basic": "ts-node examples/basic-usage.ts",
     "example:advanced": "ts-node examples/advanced-usage.ts",
     "example:interactive": "ts-node examples/interactive-agent-setup.ts",
+    "test:real": "ts-node examples/real-openchat-test.ts",
+    "test:real:prod": "USE_PRODUCTION=true ts-node examples/real-openchat-test.ts",
     "deploy:local": "dfx deploy --local",
     "deploy:ic": "dfx deploy --network ic"
   },
