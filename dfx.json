@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "canisters": {
+    "openchat_client": {
+      "type": "custom",
+      "build": "npm run build",
+      "root": "src",
+      "ts": "src/index.ts",
+      "candid": "src/candid/openchat.did",
+      "wasm": ".dfx/local/canisters/openchat_client/openchat_client.wasm"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"],
+      "type": "persistent"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  }
+}
